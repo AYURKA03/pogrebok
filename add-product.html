@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить продукт — Погребок</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <a href="products.html" class="logo">погребок<span> .fresh</span></a>
+        <div class="nav">
+            <a href="products.html">продукты</a>
+            <a href="categories.html">категории</a>
+            <a href="recipes.html">рецепты</a>
+            <a href="shopping-list.html">список покупок</a>
+            <a href="analytics.html">аналитика</a>
+            <a href="profile.html">профиль</a>
+            <button id="logoutBtn" class="btn-outline">выход</button>
+        </div>
+    </div>
+
+    <div class="form-card">
+        <h1 class="page-title">Добавить продукт</h1>
+        <form id="addProductForm">
+            <input type="text" id="productName" placeholder="Название продукта" required>
+            <div class="field-hint">Например: яйца, огурцы, помидоры</div>
+
+            <select id="productCategory">
+                <option value="1">Молочные продукты</option>
+                <option value="2">Мясо и рыба</option>
+                <option value="3">Овощи</option>
+                <option value="4">Фрукты</option>
+                <option value="5">Крупы</option>
+                <option value="6">Консервы</option>
+                <option value="7">Напитки</option>
+                <option value="8">Специи</option>
+                <option value="9">Соусы</option>
+                <option value="10">Замороженные продукты</option>
+                <option value="11">Хлебобулочные изделия</option>
+                <option value="12">Другое</option>
+            </select>
+            <div class="field-hint">Категория влияет на срок хранения</div>
+
+            <input type="number" id="productQuantity" placeholder="Количество" step="0.1" min="0" required>
+            <div class="field-hint">Для штук и упаковок введите целое число</div>
+
+            <select id="productUnit">
+                <option value="шт">шт</option>
+                <option value="г">гр</option>
+                <option value="кг">кг</option>
+                <option value="мл">мл</option>
+                <option value="л">л</option>
+                <option value="упаковка">упаковка</option>
+            </select>
+
+            <input type="date" id="productExpiry">
+            <div class="field-hint">Если не указать, будет рассчитан автоматически</div>
+
+            <select id="productStorage">
+                <option value="холодильник">холодильник</option>
+                <option value="морозильная камера">морозильная камера</option>
+                <option value="кухонный шкаф">кухонный шкаф</option>
+            </select>
+
+            <button type="submit" class="btn-primary btn-full">Сохранить</button>
+        </form>
+        <div class="auth-footer">
+            <a href="products.html" class="btn-outline btn-small">← Назад к продуктам</a>
+        </div>
+    </div>
+
+    <footer>Погребок — продукты под контролем</footer>
+</div>
+
+<script src="main.js"></script>
+
+<div id="confirmModal" class="modal">
+    <div class="modal-content">
+        <h3 id="confirmModalTitle">Подтверждение</h3>
+        <p id="confirmModalMessage"></p>
+        <div class="modal-buttons">
+            <button class="btn-outline" id="confirmModalCancel">Отмена</button>
+            <button class="btn-primary" id="confirmModalOk">OK</button>
+        </div>
+    </div>
+</div>
+
+<div id="infoModal" class="modal">
+    <div class="modal-content">
+        <h3 id="infoModalTitle">Сообщение</h3>
+        <p id="infoModalMessage"></p>
+        <div class="modal-buttons">
+            <button class="btn-primary" id="infoModalOk">Хорошо</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (!currentUser) {
+        window.location.href = 'login.html';
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Профиль — Погребок</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <a href="products.html" class="logo">погребок<span> .fresh</span></a>
+        <div class="nav">
+            <a href="products.html">продукты</a>
+            <a href="categories.html">категории</a>
+            <a href="recipes.html">рецепты</a>
+            <a href="shopping-list.html">список покупок</a>
+            <a href="analytics.html">аналитика</a>
+            <a href="profile.html">профиль</a>
+            <button id="logoutBtn" class="btn-outline">выход</button>
+        </div>
+    </div>
+
+    <div class="profile-card" id="profileView">
+        <h1 class="page-title" style="text-align: center;">Профиль пользователя</h1>
+
+        <div class="profile-info">
+            <strong>Фамилия:</strong> <span id="profileLastName">-</span>
+        </div>
+        <div class="profile-info">
+            <strong>Имя:</strong> <span id="profileFirstName">-</span>
+        </div>
+        <div class="profile-info">
+            <strong>Отчество:</strong> <span id="profilePatronymic">-</span>
+        </div>
+        <div class="profile-info">
+            <strong>Email:</strong> <span id="profileEmail">-</span>
+        </div>
+        <div class="profile-info">
+            <strong>Роль:</strong> <span id="profileRole">-</span>
+        </div>
+        <div class="profile-info">
+            <strong>Дата регистрации:</strong> <span id="profileDate">-</span>
+        </div>
+
+        <div style="margin-top: 1.5rem; text-align: center;">
+            <button id="editProfileBtn" class="btn-primary">Редактировать профиль</button>
+        </div>
+    </div>
+
+    <div class="profile-card" id="profileEdit" style="display: none;">
+        <h1 class="page-title" style="text-align: center;">Редактирование профиля</h1>
+        <form id="editProfileForm">
+            <div class="profile-info">
+                <label class="profile-label">Фамилия</label>
+                <input type="text" id="editLastName" class="edit-input" placeholder="Введите фамилию">
+            </div>
+            <div class="profile-info">
+                <label class="profile-label">Имя</label>
+                <input type="text" id="editFirstName" class="edit-input" placeholder="Введите имя">
+            </div>
+            <div class="profile-info">
+                <label class="profile-label">Отчество</label>
+                <input type="text" id="editPatronymic" class="edit-input" placeholder="Введите отчество">
+            </div>
+            <div class="profile-info">
+                <label class="profile-label">Email</label>
+                <input type="email" id="editEmail" class="edit-input" placeholder="example@mail.ru">
+            </div>
+            <div class="profile-info">
+                <label class="profile-label">Новый пароль</label>
+                <div class="field-note">Оставьте пустым, если не хотите менять</div>
+                <input type="password" id="editPassword" class="edit-input" placeholder="Введите новый пароль">
+                <div class="field-hint">Минимум 6 символов</div>
+            </div>
+
+            <div class="profile-buttons">
+                <button type="button" class="btn-outline" id="cancelEditBtn">Отмена</button>
+                <button type="submit" class="btn-primary">Сохранить изменения</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <h3 id="confirmModalTitle">Подтверждение</h3>
+            <p id="confirmModalMessage"></p>
+            <div class="modal-buttons">
+                <button class="btn-outline" id="confirmModalCancel">Отмена</button>
+                <button class="btn-primary" id="confirmModalOk">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <h3 id="infoModalTitle">Сообщение</h3>
+            <p id="infoModalMessage"></p>
+            <div class="modal-buttons">
+                <button class="btn-primary" id="infoModalOk">Хорошо</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>Погребок — продукты под контролем</footer>
+</div>
+
+<script src="main.js"></script>
+<script>
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (!currentUser) {
+        window.location.href = 'login.html';
+    }
+</script>
+</body>
+</html>

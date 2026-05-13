@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Рецепты — Погребок</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <a href="products.html" class="logo">погребок<span> .fresh</span></a>
+        <div class="nav">
+            <a href="products.html">продукты</a>
+            <a href="categories.html">категории</a>
+            <a href="recipes.html">рецепты</a>
+            <a href="shopping-list.html">список покупок</a>
+            <a href="analytics.html">аналитика</a>
+            <a href="profile.html">профиль</a>
+            <button id="logoutBtn" class="btn-outline">выход</button>
+        </div>
+    </div>
+
+    <div class="recipes-subtitle">
+        <span class="subtitle-text">подобраны по вашим продуктам</span>
+    </div>
+
+    <div>
+        <h2 class="section-title">Все рецепты</h2>
+        <div id="recipesContainer" class="recipes-grid"></div>
+    </div>
+
+    <footer>Погребок — продукты под контролем</footer>
+</div>
+
+<script src="main.js"></script>
+<script>
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (!currentUser) {
+        window.location.href = 'login.html';
+    }
+</script>
+</body>
+</html>

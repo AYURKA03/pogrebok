@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список покупок — Погребок</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <a href="products.html" class="logo">погребок<span> .fresh</span></a>
+        <div class="nav">
+            <a href="products.html">продукты</a>
+            <a href="categories.html">категории</a>
+            <a href="recipes.html">рецепты</a>
+            <a href="shopping-list.html">список покупок</a>
+            <a href="analytics.html">аналитика</a>
+            <a href="profile.html">профиль</a>
+            <button id="logoutBtn" class="btn-outline">выход</button>
+        </div>
+    </div>
+
+    <div class="page-header">
+        <h1 class="page-title">Список покупок</h1>
+        <button id="addToShoppingListBtn" class="btn-primary">+ добавить вручную</button>
+    </div>
+
+    <div id="shoppingContainer" class="products-grid"></div>
+
+    <footer>Погребок — продукты под контролем</footer>
+</div>
+
+<div id="addPurchasedModal" class="modal">
+    <div class="modal-content">
+        <h3>Добавление продукта</h3>
+        <p id="purchasedProductName"></p>
+        <input type="number" id="purchasedQuantity" step="0.1" placeholder="Количество" value="1">
+        <select id="purchasedUnit">
+            <option value="шт">шт</option>
+            <option value="г">гр</option>
+            <option value="кг">кг</option>
+            <option value="мл">мл</option>
+            <option value="л">л</option>
+            <option value="упаковка">упаковка</option>
+        </select>
+        <select id="purchasedCategory">
+            <option value="1">Молочные продукты</option>
+            <option value="2">Мясо и рыба</option>
+            <option value="3">Овощи</option>
+            <option value="4">Фрукты</option>
+            <option value="5">Крупы</option>
+            <option value="6">Консервы</option>
+            <option value="7">Напитки</option>
+            <option value="8">Специи</option>
+            <option value="9">Соусы</option>
+            <option value="10">Замороженные продукты</option>
+            <option value="11">Хлебобулочные изделия</option>
+            <option value="12">Другое</option>
+        </select>
+        <select id="purchasedStorage">
+            <option value="холодильник">холодильник</option>
+            <option value="морозильная камера">морозильная камера</option>
+            <option value="кухонный шкаф">кухонный шкаф</option>
+        </select>
+        <div class="modal-buttons">
+            <button class="btn-outline" id="cancelPurchasedBtn">Отмена</button>
+            <button class="btn-primary" id="confirmPurchasedBtn">Добавить</button>
+        </div>
+    </div>
+</div>
+
+<div id="addManualModal" class="modal">
+    <div class="modal-content" style="max-width: 500px;">
+        <h3>Добавить продукты в список покупок</h3>
+        <div id="manualItemsContainer">
+            <div class="manual-item-row">
+                <input type="text" class="manual-product-name" placeholder="Название продукта" style="flex:2;">
+                <input type="text" class="manual-product-quantity" placeholder="Количество" value="1 шт" style="flex:1;">
+                <button type="button" class="btn-outline remove-manual-item" style="padding: 0.3rem 0.8rem;">✕</button>
+            </div>
+        </div>
+        <button type="button" id="addManualItemBtn" class="btn-outline" style="margin: 0.5rem 0;">+ добавить ещё продукт</button>
+        <div class="modal-buttons">
+            <button class="btn-outline" id="cancelManualBtn">Отмена</button>
+            <button class="btn-primary" id="confirmManualBtn">Добавить все</button>
+        </div>
+    </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

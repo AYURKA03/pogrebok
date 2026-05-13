@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Категория — Погребок</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <a href="products.html" class="logo">погребок<span> .fresh</span></a>
+        <div class="nav">
+            <a href="products.html">продукты</a>
+            <a href="categories.html">категории</a>
+            <a href="recipes.html">рецепты</a>
+            <a href="shopping-list.html">список покупок</a>
+            <a href="analytics.html">аналитика</a>
+            <a href="profile.html">профиль</a>
+            <button id="logoutBtn" class="btn-outline">выход</button>
+        </div>
+    </div>
+
+    <div class="back-link">
+        <a href="categories.html">← все категории</a>
+    </div>
+
+    <h1 id="categoryTitle" class="category-title">Молочные продукты</h1>
+
+    <div id="categoryProductsContainer" class="products-grid"></div>
+
+    <div id="decreaseModal" class="modal">
+        <div class="modal-content">
+            <h3>Списание продукта</h3>
+            <p id="decreaseProductName"></p>
+            <input type="number" id="decreaseAmount" step="0.1" min="0.1" placeholder="Количество для списания">
+            <div class="modal-buttons">
+                <button class="btn-outline" id="cancelDecreaseBtn">Отмена</button>
+                <button class="btn-primary" id="confirmDecreaseBtn">Списать</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <h3>Утилизация продукта</h3>
+            <p id="deleteProductName"></p>
+            <p style="color: #C55555; margin-top: 0.5rem;">Продукт будет удалён из списка</p>
+            <div class="modal-buttons">
+                <button class="btn-outline" id="cancelDeleteBtn">Отмена</button>
+                <button class="btn-primary" id="confirmDeleteBtn">Утилизировать</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>Погребок — продукты под контролем</footer>
+</div>
+
+<script src="main.js"></script>
+<script>
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (!currentUser) {
+        window.location.href = 'login.html';
+    }
+</script>
+</body>
+</html>

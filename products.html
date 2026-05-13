@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мои продукты — Погребок</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <a href="products.html" class="logo">погребок<span> .fresh</span></a>
+        <div class="nav">
+            <a href="products.html">продукты</a>
+            <a href="categories.html">категории</a>
+            <a href="recipes.html">рецепты</a>
+            <a href="shopping-list.html">список покупок</a>
+            <a href="analytics.html">аналитика</a>
+            <a href="profile.html">профиль</a>
+            <button id="logoutBtn" class="btn-outline">выход</button>
+        </div>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number" id="statTotal">0</div>
+            <div class="stat-title">всего</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" id="statFresh">0</div>
+            <div class="stat-title">свежие</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" id="statExpiring">0</div>
+            <div class="stat-title">скоро испортятся</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" id="statExpired">0</div>
+            <div class="stat-title">просроченные</div>
+        </div>
+    </div>
+
+    <div class="page-header">
+        <h1 class="page-title">Мои продукты</h1>
+        <button class="btn-primary" onclick="window.location.href='add-product.html'">+ добавить продукт</button>
+    </div>
+
+    <div id="productsContainer" class="products-grid"></div>
+
+    <footer>Погребок — продукты под контролем</footer>
+</div>
+
+<div id="decreaseModal" class="modal">
+    <div class="modal-content">
+        <h3>Списание продукта</h3>
+        <p id="decreaseProductName"></p>
+        <input type="number" id="decreaseAmount" step="0.1" min="0.1" placeholder="Количество для списания">
+        <div class="modal-buttons">
+            <button class="btn-outline" id="cancelDecreaseBtn">Отмена</button>
+            <button class="btn-primary" id="confirmDecreaseBtn">Списать</button>
+        </div>
+    </div>
+</div>
+
+<div id="deleteModal" class="modal">
+    <div class="modal-content">
+        <h3>Утилизация продукта</h3>
+        <p id="deleteProductName"></p>
+        <p style="color: #C55555; margin-top: 0.5rem;">Продукт будет удалён из списка и добавлен в историю утилизации.</p>
+        <div class="modal-buttons">
+            <button class="btn-outline" id="cancelDeleteBtn">Отмена</button>
+            <button class="btn-primary" id="confirmDeleteBtn">Утилизировать</button>
+        </div>
+    </div>
+</div>
+
+<div id="confirmModal" class="modal">
+    <div class="modal-content">
+        <h3 id="confirmModalTitle">Подтверждение</h3>
+        <p id="confirmModalMessage"></p>
+        <div class="modal-buttons">
+            <button class="btn-outline" id="confirmModalCancel">Отмена</button>
+            <button class="btn-primary" id="confirmModalOk">OK</button>
+        </div>
+    </div>
+</div>
+
+<div id="infoModal" class="modal">
+    <div class="modal-content">
+        <h3 id="infoModalTitle">Сообщение</h3>
+        <p id="infoModalMessage"></p>
+        <div class="modal-buttons">
+            <button class="btn-primary" id="infoModalOk">Хорошо</button>
+        </div>
+    </div>
+</div>
+
+<script src="main.js"></script>
+<script>
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (!currentUser) {
+        window.location.href = 'login.html';
+    }
+</script>
+</body>
+</html>

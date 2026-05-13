@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактировать рецепт — Админ-панель</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <a href="index.html" class="logo">погребок<span> .fresh</span></a>
+        <div class="nav">
+            <a href="admin-recipes.html" class="btn-outline btn-small">к списку рецептов</a>
+            <button id="logoutBtn" class="btn-outline">выход</button>
+        </div>
+    </div>
+
+    <div class="form-card">
+        <h1 class="page-title">Редактировать рецепт</h1>
+        <form id="adminEditRecipeForm">
+            <input type="hidden" id="editRecipeId">
+
+            <label class="form-label">Название блюда</label>
+            <input type="text" id="editRecipeName" placeholder="Например: Омлет" required>
+
+            <label class="form-label">Инструкция по приготовлению</label>
+            <textarea id="editRecipeInstructions" rows="5" placeholder="Опишите пошагово процесс приготовления" required></textarea>
+
+            <h3 class="section-title">Ингредиенты</h3>
+            <div id="editIngredientsContainer"></div>
+
+            <button type="button" id="editAddIngredientBtn" class="btn-outline btn-small" style="margin-top: 0.5rem;">+ добавить ингредиент</button>
+
+            <div class="admin-actions">
+                <button type="submit" class="btn-primary">Сохранить изменения</button>
+                <button type="button" id="deleteRecipeBtn" class="btn-outline" style="color: #C55555; border-color: #C55555;">удалить рецепт</button>
+            </div>
+        </form>
+        <div class="auth-footer">
+            <a href="admin-recipes.html" class="btn-outline btn-small">← Назад к управлению</a>
+        </div>
+    </div>
+
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <h3 id="confirmModalTitle">Подтверждение</h3>
+            <p id="confirmModalMessage"></p>
+            <div class="modal-buttons">
+                <button class="btn-outline" id="confirmModalCancel">Отмена</button>
+                <button class="btn-primary" id="confirmModalOk">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <h3 id="infoModalTitle">Сообщение</h3>
+            <p id="infoModalMessage"></p>
+            <div class="modal-buttons">
+                <button class="btn-primary" id="infoModalOk">Хорошо</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>Погребок — продукты под контролем</footer>
+</div>
+
+<script src="main.js"></script>
+<script>
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (!currentUser || currentUser.role !== 'admin') {
+        window.location.href = 'login.html';
+    }
+</script>
+</body>
+</html>

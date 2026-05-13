@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход — Погребок</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <a href="index.html" class="logo">погребок<span> .fresh</span></a>
+        <div class="nav">
+            <a href="login.html">войти</a>
+            <a href="register.html">регистрация</a>
+        </div>
+    </div>
+    <div class="auth-card">
+        <h1>Вход</h1>
+        <form id="loginForm">
+            <div>
+                <input type="text" id="email" placeholder="Email">
+                <div class="error-message" id="email_error"></div>
+            </div>
+            <div>
+                <input type="password" id="password" placeholder="Пароль">
+                <div class="error-message" id="password_error"></div>
+            </div>
+            <button type="submit" class="btn-primary btn-full">Войти</button>
+        </form>
+        <div class="auth-footer">
+            <a href="register.html" class="btn-outline btn-small">Нет аккаунта? Зарегистрироваться</a>
+        </div>
+    </div>
+    <footer>Погребок — продукты под контролем</footer>
+</div>
+<script src="main.js"></script>
+</body>
+</html>

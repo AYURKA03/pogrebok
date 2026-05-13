@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Рецепт — Погребок</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <a href="products.html" class="logo">погребок<span> .fresh</span></a>
+        <div class="nav">
+            <a href="products.html">продукты</a>
+            <a href="categories.html">категории</a>
+            <a href="recipes.html">рецепты</a>
+            <a href="shopping-list.html">список покупок</a>
+            <a href="analytics.html">аналитика</a>
+            <a href="profile.html">профиль</a>
+            <button id="logoutBtn" class="btn-outline">выход</button>
+        </div>
+    </div>
+
+    <div class="back-link">
+        <a href="recipes.html">← все рецепты</a>
+    </div>
+
+    <h1 id="recipeTitle" class="recipe-detail-title"></h1>
+
+    <div class="recipe-detail-grid">
+        <div>
+            <div class="ingredients-box">
+                <h3>Ингредиенты</h3>
+                <ul class="ingredients-list" id="ingredientsList"></ul>
+            </div>
+
+            <div class="availability-box">
+                <strong>Есть в наличии</strong>
+                <div class="have-items" id="haveItems"></div>
+                <strong class="missing-title">Не хватает</strong>
+                <div class="missing-items" id="missingItems"></div>
+                <button id="addMissingBtn" class="btn-primary btn-full">добавить недостающее</button>
+            </div>
+        </div>
+
+        <div class="instructions-box">
+            <h3>Приготовление</h3>
+            <div class="instructions-text" id="instructions"></div>
+        </div>
+    </div>
+
+    <footer>Погребок — продукты под контролем</footer>
+</div>
+
+<script src="main.js"></script>
+<script>
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (!currentUser) {
+        window.location.href = 'login.html';
+    }
+</script>
+</body>
+</html>
